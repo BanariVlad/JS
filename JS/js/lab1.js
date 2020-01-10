@@ -11,7 +11,7 @@ const addElements = (students, mark) => {
   }
 }
 
-const findMinMax = (marks) => {
+const findMinMax = () => {
   let max = marks[0];
   let min = marks[0];
   let sum = 0;
@@ -34,7 +34,7 @@ const findMinMax = (marks) => {
 }
 
 const solutions = () => {
-  let results = findMinMax(marks);
+  let results = findMinMax();
   document.getElementById('marks').value = marks;
   document.getElementById('max').value = results[0];
   document.getElementById('min').value = results[1];
