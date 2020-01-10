@@ -2,12 +2,11 @@ let marks = new Array();
 
 document.getElementById('solve').onclick = function() {
   addElements(Number(document.getElementById('students').value), Number(document.getElementById('mark').value));
-  findMinMax(marks);
   //Solutions
   document.getElementById('marks').value = marks;
   document.getElementById('quality').value = getSolution(marks);
-  document.getElementById('min').value = findMinMax(marks)[1];
   document.getElementById('max').value = findMinMax(marks)[0];
+  document.getElementById('min').value = findMinMax(marks)[1];
   document.getElementById('gap').value = findMinMax(marks)[2];
   document.getElementById('med').value = findMinMax(marks)[3];
 }
