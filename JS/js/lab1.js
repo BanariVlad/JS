@@ -2,13 +2,7 @@ let marks = new Array();
 
 document.getElementById('solve').onclick = function() {
   addElements(Number(document.getElementById('students').value), Number(document.getElementById('mark').value));
-  //Solutions
-  document.getElementById('marks').value = marks;
-  document.getElementById('quality').value = getSolution(marks);
-  document.getElementById('max').value = findMinMax(marks)[0];
-  document.getElementById('min').value = findMinMax(marks)[1];
-  document.getElementById('gap').value = findMinMax(marks)[2];
-  document.getElementById('med').value = findMinMax(marks)[3];
+  solutions();
 }
 
 const addElements = (students, mark) => {
@@ -17,20 +11,11 @@ const addElements = (students, mark) => {
   }
 }
 
-const getSolution = (marks) => {
-  let quality = 0;
-  marks.forEach(mark => {
-    if (mark >= 5) {
-      quality++;
-    }
-  });
-  return quality * 100 / marks.length
-}
-
 const findMinMax = (marks) => {
   let max = marks[0];
   let min = marks[0];
   let sum = 0;
+  let quality = 0;
 
   marks.forEach(mark => {
     if (max < mark) {
@@ -39,8 +24,21 @@ const findMinMax = (marks) => {
     if (min > mark) {
       min = mark;
     }
+    if (mark >= 5) {
+      quality++;
+    }
     sum += mark;
   });
   let gap = max - min;
-  return [max, min, gap, sum / marks.length];
+  return [max, min, gap, Math.round(sum / marks.length), Math.round(quality * 100 / marks.length)];
+}
+
+const solutions = () => {
+  let results = findMinMax(marks);
+  document.getElementById('marks').value = marks;
+  document.getElementById('max').value = results[0];
+  document.getElementById('min').value = results[1];
+  document.getElementById('gap').value = results[2];
+  document.getElementById('med').value = results[3];
+  document.getElementById('quality').value = results[4];
 }
