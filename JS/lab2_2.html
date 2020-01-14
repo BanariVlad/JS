@@ -5,13 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .results {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <main>
     <section>
       <h2>Fibonacci</h2>
-      <input type="number" placeholder="Number">
-      <input type="number" placeholder="First n elements">
+      <input type="number" id="number" placeholder="Number"> <br> <br>
+      <input type="number" id="n" placeholder="First n elements"> <br> <br>
+      <input type="number" id="intervalMin" placeholder="Interval value min"> <br> <br>
+      <input type="number" id="intervalMax" placeholder="Interval value max"> <br> <br>
+      <button id="resolve">Resolve this hard problem</button>
+    </section>
+    <section>
+      <ul class="results" >
+        <li>Fibonacci Numbers : <output id="fibonacci"></output></li>
+        <li>Is it Fibonacci number? <output id="checkFibonacci"></output></li>
+        <li>All Fibonacci numbers from interval <output id="intervalFibonacci"></output></li>
+        <li>All prime Fibonacci numbers from interval <output id="primeFibonacci"></output></li>
+      </ul>
     </section>
   </main>
 
