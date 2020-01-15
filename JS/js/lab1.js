@@ -1,15 +1,16 @@
 let marks = new Array();
 
-document.getElementById('solve').onclick = function() {
+document.getElementById('solve').onclick = () => {
   addElements(Number(document.getElementById('students').value), Number(document.getElementById('mark').value));
   //Results
   let results = findMinMax();
-  document.getElementById('marks').value = marks;
+  document.getElementById('marks').value = marks.sort((a, b) => a - b);
   document.getElementById('max').value = results[0];
   document.getElementById('min').value = results[1];
   document.getElementById('gap').value = results[2];
   document.getElementById('med').value = results[3];
   document.getElementById('quality').value = results[4];
+  document.getElementById('rotation').value = marks.slice(1).concat(marks.slice(0, 1));
 }
 
 const addElements = (students, mark) => {
